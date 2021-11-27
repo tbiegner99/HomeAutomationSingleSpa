@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+.menuCard {
+    border:1px solid #777;
+    border-radius: 5px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    flex-direction: column;
+}
+.menuCard * {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.menuCard:hover {
+    background: #EEE;
+    cursor: pointer;
+}
+.icon {
+    font-size:30px;
+}
+.title {
+    padding-top:10px;
+    font-weight:bold;
+}

@@ -1,0 +1,66 @@
+
+.arrow {
+    height: 100%;
+    width:5vw;
+    z-index: 1;
+background: white;
+}
+.arrow > div {
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hide {
+    display:none !important;
+}
+
+.menuContent {
+    width:90vw;
+    overflow: hidden;
+}
+
+.headerSection {
+    height:40vh;
+}
+.card {
+    height:100%
+}
+.menuPage {
+    width:100vw;
+    display: flex; 
+    padding:10px;
+}
+.appsMenu{
+    overflow: hidden;
+    width:100vw;
+    height:60vh;
+    position:relative;
+    display: flex;
+    flex-direction: row;
+}
+.appCard {
+    width:30vw;
+    height:26vh;
+    
+}
+.appCard:nth-of-type(2), .appCard:nth-of-type(5) {
+    padding:0 2vw
+}
+.appsPage {
+   width:100vw;
+    padding:2vh 5vw;
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height:60vh;
+    overflow: hidden;
+ 
+}
+.appsPagesContainer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left:0;
+    transition: all .7s ease-in-out;
+}

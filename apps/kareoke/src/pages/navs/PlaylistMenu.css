@@ -1,0 +1,17 @@
+
+.clearLink {
+    cursor:pointer;
+}
+
+.emptyPlaylist {
+    height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: italic;
+}
+
+.playlistHeader {
+    font-size:24px;
+}
+

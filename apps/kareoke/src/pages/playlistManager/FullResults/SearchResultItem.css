@@ -1,0 +1,65 @@
+.addButton {
+    cursor: pointer;
+}
+
+.addButtonIcon {
+    padding-right:5px;
+    
+}
+.title {
+    font-weight: bold;
+    font-size:18px;
+    padding:5px 0px;
+}
+
+.subtitle {
+    font-style: italic;
+}
+
+.additionalSources {
+    transition: all .5s ease-in-out;
+    max-height:0;
+    overflow: hidden;
+    padding-bottom:10px;
+}
+
+.additionalSources.open {
+    max-height: 400px;
+}
+.sourcesHeader {
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+.sourcesHeader h2 {
+    margin: 0;
+    font-size: 18px;
+}
+.drawerIcon {
+    padding:0px 10px;
+}
+.songCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    padding:20px 20px 20px 20px;
+}
+.sourceCardContainer {
+    padding:0px 40px;
+}
+.sourceCard {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+   
+    border-bottom: 1px solid #EEE
+}
+
+.resultItem {
+    border-bottom: 1px solid #CCC;
+    /*box-shadow:5px 5px 8px 1px #888888;*/
+}

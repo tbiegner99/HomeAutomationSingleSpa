@@ -1,0 +1,11 @@
+.kareokePage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:100%;
+}
+.mainContent {
+    padding:10px 40px;
+}
+
+

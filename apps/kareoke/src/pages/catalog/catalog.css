@@ -1,0 +1,23 @@
+
+  @media print {
+   @page {
+        size: 8.5in 11.5in;
+        margin: 0in
+
+    }
+
+    @page :footer {
+        content: counter(page)
+    }
+
+   body {
+    margin:1in
+   }
+}
+
+
+    .page {
+        column-count:2;
+        
+     }
+

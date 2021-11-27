@@ -1,0 +1,17 @@
+.sideMenu {
+    width:400px;
+    max-width:100%;
+    word-wrap: break-word;
+    
+}
+.closeButton {
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+}
+.closeButton:hover {
+    background: white;;
+}
+.content {
+    padding: 20px;
+}

@@ -1,0 +1,9 @@
+.confirmAddModal {
+    height: 60%;
+    width: 40%;
+}
+
+.searchBox {
+    display: flex;
+    padding-bottom:10px;
+}
