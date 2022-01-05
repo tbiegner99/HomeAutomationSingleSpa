@@ -18,7 +18,7 @@
     "build-storybook": "build-storybook",
     "lint-fix": "eslint --fix src tests",
     "lint": "eslint src tests",
-    "prepush": "npm run lint && npm run coverage"
+    "prepush": "npm run lint"
   },
   "author": "TJ Biegner",
   "license": "ISC",
