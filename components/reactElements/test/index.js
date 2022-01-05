@@ -1,4 +1,0 @@
-// @create-index
-
-export { default as init } from './init.js';
-
