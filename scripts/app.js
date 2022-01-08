@@ -9,16 +9,26 @@ const convertConfig = (config, customProps) => ({
 
 const startApp = async () => {
   const appConfigs = await System.import('appConfig');
-  const customProps = {
-    apps: appConfigs
+  const byPriorityDesc = (app1, app2) => {
+    if (app1.priority < app2.priority) {
+      return 1;
+    } else if (app1.priority > app2.priority) {
+      return -1;
+    } else if (app1.title < app2.title) {
+      return -1;
+    }
+    return 1;
   };
-  registerApplication({
-    name: 'home',
-    // eslint-disable-next-line import/no-unresolved
-    app: () => System.import('home'),
-    activeWhen: (location) => location.pathname === '/',
-    customProps
-  });
+  const apps = appConfigs.filter((app) => app.priority > 0).sort(byPriorityDesc);
+  console.log(apps);
+  const customProps = { apps };
+  // registerApplication({
+  //   name: 'home',
+  //   // eslint-disable-next-line import/no-unresolved
+  //   app: () => System.import('home'),
+  //   activeWhen: (location) => location.pathname === '/',
+  //   customProps
+  // });
 
   appConfigs
     .filter((app) => Boolean(app.routes))

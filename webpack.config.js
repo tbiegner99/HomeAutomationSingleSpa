@@ -3,11 +3,11 @@ const path = require('path');
 module.exports = {
   devtool: 'source-map',
   mode: 'development',
-  entry: ['./scripts/app.js', './html/index.html'],
+  entry: ['./scripts/app.js'],
   output: {
     filename: '[name].[contenthash].bundle.js',
     libraryTarget: 'system',
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, 'build', process.env.OUTDIR || ''),
     publicPath: '/'
   },
   devServer: {
