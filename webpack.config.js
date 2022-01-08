@@ -18,7 +18,7 @@ module.exports = (env) => {
         inject: false,
         template: 'html/index.ejs',
         templateParameters: {
-          env: env.MODE === 'development' ? 'dev' : 'prod'
+          env: env.ENVIRONMENT || 'development'
         }
       })
     ],

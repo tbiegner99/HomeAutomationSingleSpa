@@ -10,7 +10,7 @@
     "test": "jest --config jest.config.js",
     "coverage": "npm run test -- --coverage",
     "dev": "webpack-dev-server --env PROD_SERVER=http://home-automation --env NO_HASH=true",
-    "build": "webpack --env MODE=development",
+    "build": "webpack --env MODE=production --env ENVIRONMENT=lower",
     "test-watch": "jest --config jest.config.js --watchAll",
     "test-debug": "node --inspect ./node_modules/jest/bin/jest.js --watchAll",
     "storybook": "start-storybook -p 6006 -c .storybook",
