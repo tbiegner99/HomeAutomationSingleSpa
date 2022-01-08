@@ -9,8 +9,8 @@
   "scripts": {
     "test": "jest --config jest.config.js",
     "coverage": "npm run test -- --coverage",
-    "dev": "webpack-dev-server",
-    "build": "webpack",
+    "dev": "webpack-dev-server --env PROD_SERVER=http://home-automation --env NO_HASH=true",
+    "build": "webpack --env MODE=development",
     "test-watch": "jest --config jest.config.js --watchAll",
     "test-debug": "node --inspect ./node_modules/jest/bin/jest.js --watchAll",
     "storybook": "start-storybook -p 6006 -c .storybook",
@@ -43,6 +43,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.6.1",
     "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^0.14.3",
     "jsdoc": "^3.5.5",
     "prettier": "^1.10.2",

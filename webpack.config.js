@@ -1,46 +1,53 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
-  devtool: 'source-map',
-  mode: 'development',
-  entry: ['./scripts/app.js'],
-  output: {
-    filename: '[name].[contenthash].bundle.js',
-    libraryTarget: 'system',
-    path: path.resolve(__dirname, 'build', process.env.OUTDIR || ''),
-    publicPath: '/'
-  },
-  devServer: {
-    hot: true,
-    host: '0.0.0.0',
-    port: 7000,
-    proxy: {
-      '/api/kareoke': 'http://localhost:8080',
-      '/homeApp': {
-        target: 'http://localhost:8001',
-        pathRewrite(/* req, path */) {
-          // use the pathRewrite to modify your path if needed
-          return '/main.bundle.js';
-        }
-      }
+module.exports = (env) => {
+  console.log(env);
+  return {
+    devtool: 'source-map',
+    mode: env.MODE || 'development',
+    entry: ['./scripts/app.js'],
+    output: {
+      filename: env.NO_HASH === 'true' ? 'ha-main.js' : '[name].[contenthash].bundle.js',
+      libraryTarget: 'system',
+      path: path.resolve(__dirname, 'build', process.env.OUTDIR || ''),
+      publicPath: '/'
     },
-    historyApiFallback: true
-  },
-
-  module: {
-    rules: [
-      {
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      {
-        test: /\.html?$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]'
+    plugins: [
+      new HtmlWebpackPlugin({
+        inject: false,
+        template: 'html/index.ejs',
+        templateParameters: {
+          env: env.MODE === 'development' ? 'dev' : 'prod'
         }
-      }
-    ]
-  }
+      })
+    ],
+    devServer: {
+      hot: true,
+      host: '0.0.0.0',
+      port: 7000,
+      proxy: {
+        '/config': `${env.PROD_SERVER}`,
+        '/app': `${env.PROD_SERVER}`
+      },
+      historyApiFallback: true
+    },
+
+    module: {
+      rules: [
+        // {
+        //   test: /\.(js)$/,
+        //   exclude: /node_modules/,
+        //   use: ['babel-loader']
+        // },
+        {
+          test: /\.html?$/i,
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
+      ]
+    }
+  };
 };

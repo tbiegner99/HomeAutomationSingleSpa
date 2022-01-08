@@ -1,14 +1,26 @@
 import { registerApplication, start } from 'single-spa';
 
+const matchRoutes = (config) => {
+  if (Array.isArray(config.routes)) {
+    return config.routes;
+  }
+  const { mode, routes } = config.routes;
+  if (mode === 'exact') {
+    return (location) => routes.some((route) => location.pathname === route);
+  }
+  return routes;
+};
+
 const convertConfig = (config, customProps) => ({
   name: config.name,
   app: () => System.import(config.package),
-  activeWhen: config.routes,
+  activeWhen: matchRoutes(config),
   customProps
 });
 
 const startApp = async () => {
-  const appConfigs = await System.import('appConfig');
+  const configFile = await System.import('appConfig');
+  const appConfigs = configFile.default;
   const byPriorityDesc = (app1, app2) => {
     if (app1.priority < app2.priority) {
       return 1;
@@ -40,6 +52,8 @@ const startApp = async () => {
   start();
 };
 
-startApp().then(() => {
-  console.log('App Started');
-});
+startApp()
+  .then(() => {
+    console.log('App Started');
+  })
+  .catch((err) => console.log(err));
