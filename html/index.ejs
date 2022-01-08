@@ -22,7 +22,7 @@
   <body style="margin:0" id="body" >
     <% if (env === "development" || env==="lower") { %>
       <script>
-        if(new URLSearchParams(window.location.search).get('develop')==='true') {
+        if(localStorage.getItem('develop')==="true" || new URLSearchParams(window.location.search).get('develop')==='true') {
           importMapOverrides.enableUI();
         }
       </script>
