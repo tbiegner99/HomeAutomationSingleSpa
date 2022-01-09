@@ -8,7 +8,7 @@ module.exports = (env) => {
     mode: env.MODE || 'development',
     entry: ['./scripts/app.js'],
     output: {
-      filename: env.NO_HASH === 'true' ? 'ha-main.js' : '[name].[contenthash].bundle.js',
+      filename: 'home-automation-main.js',
       libraryTarget: 'system',
       path: path.resolve(__dirname, 'build', process.env.OUTDIR || ''),
       publicPath: '/'
