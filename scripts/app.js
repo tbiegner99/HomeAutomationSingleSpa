@@ -41,13 +41,10 @@ const startApp = async () => {
     {}
   );
   window.addEventListener('single-spa:app-change', (evt) => {
-    console.log(appConfigs);
-    console.log(appConfigMap);
-    console.log(evt.detail.appsByNewStatus.MOUNTED);
     const mountedApps = evt.detail.appsByNewStatus.MOUNTED.map(
       (appName) => appConfigMap[appName]
     ).filter((config) => config.priority > 0 && (config.role === 'app' || !config.role));
-    console.log(mountedApps[0]);
+
     const event = new CustomEvent('app-changed', { detail: mountedApps[0] });
     window.dispatchEvent(event);
   });
