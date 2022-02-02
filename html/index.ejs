@@ -4,12 +4,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="importmap-type" content="systemjs-importmap" />
     <title>Home Automation</title>
+    <style>
+      .__content__ {
+        display:flex;
+        flex-direction:column;
+      }
+      .__app__{
+        overflow:auto;
+        flex-grow:1;
+      }
+    </style>
     <script type="systemjs-importmap" src="/config/import-map.json"> </script>
     <% if (env === "development") { %>
       <script type="systemjs-importmap"> 
         {
           "imports":{
-            "@tbiegner99/home-automation-main-ui": "//localhost:7000/ha-main.js"
+            "@tbiegner99/home-automation-main-ui": "//localhost:7000/home-automation-main.js"
           }
         }
       </script>
@@ -18,6 +28,7 @@
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/import-map-overrides/dist/import-map-overrides.js"></script>
     <% } %>
     <script  src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script  src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
   </head>
   <body style="margin:0" id="body" >
     <% if (env === "development" || env==="lower") { %>
@@ -27,6 +38,10 @@
         }
       </script>
     <% } %>
+    <section class="__content__">
+    <div data-role="nav" ></div>
+    <div data-role="app" class="__app__"></div> 
+  </section>
     <script >
       System.import("@tbiegner99/home-automation-main-ui")
     </script>

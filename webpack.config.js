@@ -1,4 +1,5 @@
 const path = require('path');
+const express = require('express');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env) => {
@@ -28,7 +29,17 @@ module.exports = (env) => {
       port: 7000,
       proxy: {
         '/config': `${env.PROD_SERVER}`,
-        '/app': `${env.PROD_SERVER}`
+        '/app': `${env.PROD_SERVER}`,
+        '/icons': `${env.PROD_SERVER}`
+      },
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH, OPTIONS',
+        'Access-Control-Allow-Headers': 'X-Requested-With, content-type, Authorization'
+      },
+      setupMiddlewares: (middlewares, devServer) => {
+        devServer.app.use('/dev/', express.static(path.resolve(__dirname, 'dev')));
+        return middlewares;
       },
       historyApiFallback: true
     },

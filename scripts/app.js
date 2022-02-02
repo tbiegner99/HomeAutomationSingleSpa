@@ -5,22 +5,53 @@ const matchRoutes = (config) => {
     return config.routes;
   }
   const { mode, routes } = config.routes;
+  const hasExactRoute = (location) => routes.some((route) => location.pathname === route);
   if (mode === 'exact') {
-    return (location) => routes.some((route) => location.pathname === route);
+    return hasExactRoute;
+  } else if (mode === 'exclude') {
+    return (location) => !routes.some((route) => location.pathname.startsWith(route));
+  } else if (mode === 'excludeExact') {
+    return (location) => !hasExactRoute(location);
   }
   return routes;
 };
 
-const convertConfig = (config, customProps) => ({
-  name: config.name,
-  app: () => System.import(config.package),
-  activeWhen: matchRoutes(config),
-  customProps
-});
+const convertConfig = (config, customProps) => {
+  const { role = 'app' } = config;
+  const domElement = document.querySelector(`[data-role="${role}"]`);
+  let props = customProps;
+  if (domElement) {
+    props = Object.assign({}, props, {
+      domElement
+    });
+  }
+  return {
+    name: config.name,
+    app: () => System.import(config.package),
+    activeWhen: matchRoutes(config),
+    customProps: props
+  };
+};
 
 const startApp = async () => {
   const configFile = await System.import('appConfig');
   const appConfigs = configFile.default;
+  const appConfigMap = appConfigs.reduce(
+    (obj, config) => Object.assign(obj, { [config.name]: config }, {}),
+    {}
+  );
+  window.addEventListener('single-spa:app-change', (evt) => {
+    console.log(appConfigs);
+    console.log(appConfigMap);
+    console.log(evt.detail.appsByNewStatus.MOUNTED);
+    const mountedApps = evt.detail.appsByNewStatus.MOUNTED.map(
+      (appName) => appConfigMap[appName]
+    ).filter((config) => config.priority > 0 && (config.role === 'app' || !config.role));
+    console.log(mountedApps[0]);
+    const event = new CustomEvent('app-changed', { detail: mountedApps[0] });
+    window.dispatchEvent(event);
+  });
+
   const byPriorityDesc = (app1, app2) => {
     if (app1.priority < app2.priority) {
       return 1;
@@ -32,7 +63,7 @@ const startApp = async () => {
     return 1;
   };
   const apps = appConfigs.filter((app) => app.priority > 0).sort(byPriorityDesc);
-  console.log(apps);
+
   const customProps = { apps };
   // registerApplication({
   //   name: 'home',

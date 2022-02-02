@@ -1,0 +1,99 @@
+[
+  {
+    "name": "@tbiegner99/home-automation-app-navbar",
+    "title": "Nav Bar",
+    "package": "@tbiegner99/home-automation-app-navbar",
+    "priority": -1,
+    "role": "nav",
+    "filename": "1.0.0_9/home-app.js",
+    "description": "home automation app home page",
+    "version": "1.0.0_9",
+    "icon": "",
+    "module": false,
+    "build": "dev",
+    "routes": {
+      "routes": ["/"],
+      "mode": "excludeExact"
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-kareoke",
+    "title": "Kareoke",
+    "package": "@tbiegner99/home-automation-app-kareoke",
+    "priority": 10,
+    "filename": "1.0.0_35/kareoke-app.js",
+    "description": "micro frun end that is independently deployable. A kareoke system frontend to pair with RTSP server",
+    "version": "1.0.0_35",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "94dc6933b26256fa7e0660660928a8c239b80437",
+    "routes": {
+      "routes": ["/kareoke"],
+      "mode": ""
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-weather",
+    "title": "Weather",
+    "package": "@tbiegner99/home-automation-app-weather",
+    "priority": 3,
+    "filename": "1.0.0_9/weather-app.js",
+    "description": "kareoke app",
+    "version": "1.0.0_9",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "fc7cd14fcb4e0cd3f8f2a0d7ed636fe0d74842b1",
+    "routes": {
+      "routes": ["/weather"],
+      "mode": ""
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-todo",
+    "title": "To Do List",
+    "package": "@tbiegner99/home-automation-app-todo",
+    "priority": 2,
+    "filename": "1.0.0_5/todo-app.js",
+    "description": "todo list  app",
+    "version": "1.0.0_5",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "0c70bce095186224a6bb38321a573ac6d4befe58",
+    "routes": {
+      "routes": ["/todo"],
+      "mode": ""
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-tv",
+    "title": "TV",
+    "package": "@tbiegner99/home-automation-app-tv",
+    "priority": 1,
+    "filename": "1.0.0_5/tv-app.js",
+    "description": "tv manager app",
+    "version": "1.0.0_5",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "1c22da857dad1adec17e59cf63b551ade003ae62",
+    "routes": {
+      "routes": ["/tv"],
+      "mode": ""
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-home",
+    "title": "Home Page",
+    "package": "@tbiegner99/home-automation-app-home",
+    "priority": -1,
+    "filename": "1.0.0_9/home-app.js",
+    "description": "home automation app home page",
+    "version": "1.0.0_9",
+    "icon": "",
+    "module": false,
+    "build": "c354dac23dd68c245f3cdc72346cf01f4ea73a61",
+    "routes": {
+      "routes": ["/"],
+      "mode": "exact"
+    }
+  }
+]
