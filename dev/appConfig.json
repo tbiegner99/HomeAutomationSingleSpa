@@ -95,5 +95,53 @@
       "routes": ["/"],
       "mode": "exact"
     }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-tv1",
+    "title": "TV",
+    "package": "@tbiegner99/home-automation-app-tv",
+    "priority": 1,
+    "filename": "1.0.0_5/tv-app.js",
+    "description": "tv manager app",
+    "version": "1.0.0_5",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "1c22da857dad1adec17e59cf63b551ade003ae62",
+    "routes": {
+      "routes": ["/tv"],
+      "mode": ""
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-tv2",
+    "title": "TV",
+    "package": "@tbiegner99/home-automation-app-tv",
+    "priority": 1,
+    "filename": "1.0.0_5/tv-app.js",
+    "description": "tv manager app",
+    "version": "1.0.0_5",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "1c22da857dad1adec17e59cf63b551ade003ae62",
+    "routes": {
+      "routes": ["/tv"],
+      "mode": ""
+    }
+  },
+  {
+    "name": "@tbiegner99/home-automation-app-tv3",
+    "title": "TV",
+    "package": "@tbiegner99/home-automation-app-tv",
+    "priority": 1,
+    "filename": "1.0.0_5/tv-app.js",
+    "description": "tv manager app",
+    "version": "1.0.0_5",
+    "icon": "icon.svg",
+    "module": false,
+    "build": "1c22da857dad1adec17e59cf63b551ade003ae62",
+    "routes": {
+      "routes": ["/tv"],
+      "mode": ""
+    }
   }
 ]
