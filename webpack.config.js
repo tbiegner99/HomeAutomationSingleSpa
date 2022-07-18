@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = (env) => {
   console.log(env);
@@ -21,10 +22,15 @@ module.exports = (env) => {
         templateParameters: {
           env: env.ENVIRONMENT || 'development'
         }
+      }),
+      new CopyPlugin({
+        patterns: [{ from: 'public' }]
       })
     ],
     devServer: {
-      hot: true,
+      client: false,
+      webSocketServer: false,
+      hot: false,
       host: '0.0.0.0',
       port: 7000,
       proxy: {

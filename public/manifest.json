@@ -1,0 +1,65 @@
+{
+  "short_name": "Home Automation",
+  "name": "Home Automation",
+  "start_url": ".",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/images/main_iconx48.png",
+      "type": "image/png",
+      "sizes": "48x48",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/main_iconx96.png",
+      "type": "image/png",
+      "sizes": "96x96",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/main_iconx128.png",
+      "type": "image/png",
+      "sizes": "128x128",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/main_iconx192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any "
+    },
+    {
+      "src": "/images/main_iconx384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable"
+    },
+
+    {
+      "src": "/images/main_icon512x512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "shortcuts": [
+    {
+      "name": "Kareoke",
+      "short_name": "Kareoke",
+      "description": "Kareoke management app",
+      "url": "/kareoke",
+      "icons": [
+        { "src": "/images/kareoke_icon512x512.png", "type": "image/png", "sizes": "512x512" }
+      ]
+    },
+    {
+      "name": "Weather",
+      "short_name": "Weather",
+      "description": "Current and future weather",
+      "url": "/weather",
+      "icons": [{ "src": "/images/weather_iconx512.png", "type": "image/png", "sizes": "512x512" }]
+    }
+  ]
+}
